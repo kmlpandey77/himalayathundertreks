@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+{{-- Not for search results: form page. --}}
+@section('robots', 'noindex, follow')
+
 @section('meta')
 <meta content="Write Review" name="description"/>
 <meta content="Write Review" name="keywords"/>

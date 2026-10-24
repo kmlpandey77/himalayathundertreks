@@ -6,6 +6,10 @@
 <link rel="stylesheet" href="{{ asset('stylesheets/trip-gallery.css') }}?v={{ filemtime(public_path('stylesheets/trip-gallery.css')) }}">
 @endpush
 
+@section('schema')
+@include('seo.trip', ['package' => $package])
+@endsection
+
 @section('meta')
 
 <meta name="description" content="{{ $package->m_description }}">
@@ -20,12 +24,8 @@
 @endsection
 
 @section('content')
-<section class="content trip" itemscope itemtype="http://schema.org/Product">
+<section class="content trip">
 
-    <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-        <meta itemprop="ratingValue" content="100%">
-        <meta itemprop="ratingCount" content="{{ review_count() }}">   
-  </div>
 
 
     <section class="innerslide innerslide--grid">
@@ -41,7 +41,7 @@
                     <source type="image/webp" srcset="{{ $slide->webp('800x300') }} 800w, {{ $webp }} 1600w"
                         sizes="{{ $key == 0 ? '(min-width: 768px) 50vw, 100vw' : '25vw' }}">
                     @endif
-                    <img itemprop="image" src="{{ $slide->image_path }}" alt="{{ $slide->title }}" title="{{ $slide->title }}"
+                    <img src="{{ $slide->image_path }}" alt="{{ $slide->title }}" title="{{ $slide->title }}"
                         @if($key == 0) fetchpriority="high" @else loading="lazy" @endif>
                 </picture>
                 @if($loop->last && $package->slides->count() > $gallerySlides->count())
@@ -59,7 +59,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <h1 itemprop="name">{{ $package->title }}</h1>
+                        <h1>{{ $package->title }}</h1>
                     </div>
                     <div class="col-auto pt-2 d-none d-md-block">
                         <a targe="_blank" href="{{ route('print', [$package->slug]) }}" class="button button-pill button-small button-secondary button-border">
@@ -167,17 +167,16 @@
                     <h2>Overview</h2>
 
                     <div class="trip-facts">
-                        <ul class="row" itemprop="additionalProperty" itemscope
-                            itemtype="http://schema.org/PropertyValue">
+                        <ul class="row">
                             <li class="col-sm-6">
                                 <i class="fas fa-clock fa-fw"></i>
-                                <span itemprop="name" class="title">Duration:</span>
-                                <span itemprop="value" class="value">{{ $package->days()  }}</span>
+                                <span class="title">Duration:</span>
+                                <span class="value">{{ $package->days()  }}</span>
                             </li>
                             <li class="col-sm-6">
                                 <i class="fas fa-level-up-alt fa-fw"></i>
-                                <span itemprop="name" class="title">Trip Grade:</span>
-                                <span itemprop="value" class="value">
+                                <span class="title">Trip Grade:</span>
+                                <span class="value">
                                     {{ config('grade.title.' . $package->grade) }}
                                     <a href="#" title="{{ config('grade.' . $package->grade) }}" data-toggle="popover"
                                         data-trigger="hover" data-content="{{ $package->grade_content }}"
@@ -189,8 +188,8 @@
                             @foreach ($package->facts as $fact)
                             <li class="{{ $fact->col() }}">
                                 <i class="{{ $fact->icon() }} fa-fw"></i>
-                                <span itemprop="name" class="title">{{ $fact->title }}:</span>
-                                <span itemprop="value" class="value">{{ $fact->value }}</span>
+                                <span class="title">{{ $fact->title }}:</span>
+                                <span class="value">{{ $fact->value }}</span>
                             </li>
                             @endforeach
                         </ul>
@@ -203,7 +202,7 @@
                     </div>
                     @endif
 
-                    <div itemprop="description">
+                    <div>
                         {!! $package->details !!}
                     </div>
 
@@ -369,11 +368,7 @@
                 @endif
 
                 @if($review)
-                <div class="trip-page-box inner-review" id="review" itemprop="review" itemscope
-                    itemtype="http://schema.org/Review">
-                    <span itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
-                        <meta itemprop="ratingValue" content="100%">                        
-                    </span>
+                <div class="trip-page-box inner-review" id="review">
                     <h2>Review</h2>
 
                     <div class="media review">
@@ -387,7 +382,7 @@
 
                         <div class="media-body">
                             <h5 class="mt-0">{{ $review->title }}</h5>
-                            <p class="rating" itemprop="description">
+                            <p class="rating">
                                 @for ($i = 0; $i < $review->rating; $i++)
                                     <i class="fa fa-star active"></i>
                                     @endfor
@@ -395,7 +390,7 @@
                                         @endfor
                             </p>
                             {!! $review->details !!}
-                            <p class="name">By <i><span itemprop="author">{{ $review->name }} </span>,
+                            <p class="name">By <i><span>{{ $review->name }} </span>,
                                     <b>{{ $review->country->name }}</b></i></p>
 
                             <hr>
@@ -414,16 +409,14 @@
 
                 <div class="ml-md-3 sticky-top" style="top: 100px;z-index:0">
 
-                    <div class="price-box d-none d-lg-block" itemprop="offers" itemscope itemtype="//schema.org/Offer">
+                    <div class="price-box d-none d-lg-block">
 
                         @if ($package->price)
                             <span class="p_title">Trip cost</span>
                             <span class="price">
-                                <meta itemprop="price" content="{{$package->price}}">                                
-                                <small itemprop="priceCurrency">USD</small>
+                                <small>USD</small>
                                 {{ $package->price }}
                             </span>
-                            <meta itemprop="url" content="{{ route('booking', $package->slug) }}">
                         @else
                             <span class="p_title">Price On Request</span>
                         @endif

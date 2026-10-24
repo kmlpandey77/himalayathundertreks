@@ -1,11 +1,13 @@
 @extends('layouts.app')
 
+{{-- Not for search results: one form page per trip. --}}
+@section('robots', 'noindex, follow')
+
 @section('meta')
 <meta content="{{ $package->title }} Booking" name="description" />
 <meta content="{{ $package->title }} Booking" name="keywords" />
 @endsection
 
-@section('canonical', $package->url)
 
 @section('content')
 

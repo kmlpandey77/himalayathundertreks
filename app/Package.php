@@ -234,9 +234,11 @@ class Package extends \App\Base
     protected function parseAltitude($max_alt)
     {
         if($max_alt){
-            preg_match_all('!\d+!', $max_alt->value, $matches);
-            // print_r();
-            return isset($matches[0][0]) ? $matches[0][0] . "M" : null;
+            // First number in the fact, including thousands separators ("Numala pass (5,340m)" -> 5340M)
+            if (preg_match('/\d{1,3}(?:,\d{3})+|\d+/', $max_alt->value, $match)) {
+                return str_replace(',', '', $match[0]) . "M";
+            }
+            return null;
         }
 
         return null;

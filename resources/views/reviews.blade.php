@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title', 'Reviews')
+@section('title', $page && $page->meta_title ? $page->m_title : 'Guest Reviews | ' . config('app.name'))
 @section('meta')
-<meta name="description" content="Reviews" >
-<meta name="keywords" content="Reviews" >
+<meta name="description" content="{{ $page && $page->meta_description ? $page->meta_description : 'Reviews from travellers who trekked and toured Nepal, Tibet and Bhutan with ' . config('app.name') . '.' }}" >
+<meta property="og:title" content="Guest Reviews | {{ config('app.name') }}" />
 @endsection
 
 @section('content')

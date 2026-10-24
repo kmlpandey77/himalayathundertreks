@@ -9,6 +9,7 @@
 	<meta content="{{ $package->title }} Printable Itinerary" name="description" />
 	<meta content="{{ $package->title }} Print Itinerary" name="keywords" />
 	<link rel="canonical" href="{{ $package->url }}">
+	<meta name="robots" content="noindex, follow">
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
 	<link rel="stylesheet" href="{{ asset('vendors/bootstrap/css/bootstrap.min.css') }}">

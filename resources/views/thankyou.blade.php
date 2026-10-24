@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+{{-- Not for search results: form confirmation. --}}
+@section('robots', 'noindex, follow')
+
 @section('title')
 Thank you
 @endsection

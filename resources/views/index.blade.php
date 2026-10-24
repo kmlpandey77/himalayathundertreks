@@ -186,34 +186,3 @@
 @endif
 
 @endsection
-
-@section('schema')
-<script type="application/ld+json">
-    {
-        "@@context": "http://schema.org/",
-        "@type": "Organization",
-        "name": "Himalaya Thunder Treks & Expedition Pvt. Ltd.",
-        "url": "https://www.himalayathundertreks.com",
-        "email": "info@himalayathundertreks.com",
-        "telephone": "+977 984-181-6439",
-        "sameAs": [
-            "https://www.facebook.com/HimalayaThunderTreks",
-            "https://www.pinterest.com/himalayathunder",
-            "https://www.instagram.com/dahalajaya7/",
-            "https://twitter.com/Himalayathunde1",
-            "https://www.youtube.com/channel/UC2MaMP3VwTsN2wohj4PbSAg"
-        ],
-        "logo": "https://himalayathundertreks.com/images/logo.png",
-        "ContactPoint": {
-            "@type": "PostalAddress",
-            "streetAddress": "Thamel",
-            "addressLocality": "Kathmandu",
-            "addressRegion": "Bagmati",
-            "addressCountry": "Nepal",
-            "postalCode": "44600",
-            "contactType": "Trekking And Adventure",
-            "telephone": "+977 984-181-6439"
-        }
-    }
-</script>
-@endsection

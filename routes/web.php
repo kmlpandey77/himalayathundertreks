@@ -156,6 +156,7 @@ foreach ($cities as $city) {
 }
 
 $router->get('sitemap.xml', 'PageController@sitemap');
+$router->get('llms.txt', 'PageController@llms');
 
 $destinations = App\Destination::select('slug')->get(); // only the slug is needed to register the route
 foreach ($destinations as $dest) {

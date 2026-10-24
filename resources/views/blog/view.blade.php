@@ -21,6 +21,36 @@
 <meta property="article:published_time" content="{{ $published->toDateString() }}" />
 @endsection
 
+@section('og_type', 'article')
+
+@section('schema')
+@php
+    $articleSchema = [
+        '@context' => 'https://schema.org',
+        '@type' => 'BlogPosting',
+        '@id' => $blog->url . '#article',
+        'mainEntityOfPage' => $blog->url,
+        'headline' => \Illuminate\Support\Str::limit($blog->title, 110, ''),
+        'description' => $blog->m_description,
+        'datePublished' => $published->toIso8601String(),
+        'dateModified' => ($blog->updated_at ?? $published)->toIso8601String(),
+        'inLanguage' => 'en',
+        'author' => ['@id' => url('/') . '#organization'],
+        'publisher' => ['@id' => url('/') . '#organization'],
+        'wordCount' => str_word_count(strip_tags((string) $blog->details)),
+    ];
+    if ($heroSize) {
+        $articleSchema['image'] = [
+            '@type' => 'ImageObject',
+            'url' => asset('uploads/blogs/' . $blog->image),
+            'width' => $heroSize[0],
+            'height' => $heroSize[1],
+        ];
+    }
+@endphp
+<script type="application/ld+json">{!! json_encode($articleSchema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG) !!}</script>
+@endsection
+
 @section('content')
 <section class="breadcrubwapper">
     <div class="container">

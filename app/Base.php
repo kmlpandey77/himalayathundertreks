@@ -48,12 +48,26 @@ class Base extends Model
 
 	public function getMTitleAttribute()
 	{
-		return $this->meta_title ? $this->meta_title : $this->title . ' - ' . config('app.name');
+		if ($this->meta_title) {
+			// Short custom titles (e.g. "Reviews") get the brand so they stand on their own in results.
+			$brand = config('app.name');
+			return mb_strlen($this->meta_title) < 40 && stripos($this->meta_title, $brand) === false
+				? $this->meta_title . ' | ' . $brand
+				: $this->meta_title;
+		}
+		return $this->title . ' - ' . config('app.name');
 	}
 
 	public function getMDescriptionAttribute()
 	{
-		return $this->meta_description ? $this->meta_description : $this->title;
+		if ($this->meta_description) {
+			return $this->meta_description;
+		}
+		// Fall back to the opening of the page's own content rather than repeating the title.
+		$text = \Illuminate\Support\Str::squish(html_entity_decode(strip_tags((string) $this->details), ENT_QUOTES | ENT_HTML5));
+		return $text !== ''
+			? \Illuminate\Support\Str::limit($text, 155, '…', preserveWords: true)
+			: $this->title;
 	}
 
 	public function getMKeywordAttribute()

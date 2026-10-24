@@ -107,6 +107,29 @@ class PageController extends Controller
         return view('viewphoto', compact('album'));
     }
 
+    /**
+     * llms.txt: a plain-text map of the site for AI assistants and answer engines.
+     */
+    public function llms()
+    {
+        $body = \Cache::remember('llms_txt', now()->addHours(6), function () {
+            $activities = \App\Activity::active()->get(['id', 'title', 'slug']);
+            foreach ($activities as $activity) {
+                $activity->tripList = \App\Package::active()->where('category_id', $activity->id)
+                    ->orderBy('region_id')->orderBy('order_by')
+                    ->get(['id', 'title', 'slug', 'duration']);
+            }
+            $pages = Page::active()
+                ->whereNotIn('slug', ['home', '/', 'blogs', 'reviews', 'contact', 'photo-gallery', 'video-gallery'])
+                ->orderBy('order_by')->get(['title', 'slug']);
+            $blogs = Blog::active()->orderBy('event_date', 'desc')->orderBy('created_at', 'desc')->take(20)->get(['id', 'title', 'slug']);
+
+            return view('llms', compact('activities', 'pages', 'blogs'))->render();
+        });
+
+        return response($body)->header('Content-Type', 'text/plain; charset=UTF-8');
+    }
+
     public function sitemap(){
         return response(view('sitemap'))
         ->header('Content-Type', 'application/xml');

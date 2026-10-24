@@ -11,8 +11,11 @@
     <meta name="msvalidate.01" content="0AE3F6C76C23003B587A5B051F176AC0" />
     <meta name="yandex-verification" content="1edbc176edabc55c" />
 
-    <meta property="og:type" content="website" />
+    <meta name="robots" content="@yield('robots', 'index, follow, max-image-preview:large, max-snippet:-1')">
+    <meta property="og:type" content="@yield('og_type', 'website')" />
     <meta property="og:url" content="{{ request()->url() }}" />
+    <meta property="og:site_name" content="{{ config('app.name') }}" />
+    <meta name="twitter:card" content="summary_large_image" />
 
     @yield('meta')
 
@@ -49,7 +52,9 @@
     <meta name="msapplication-TileImage" content="{{ asset('images/ms-icon-144x144.png') }}">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="canonical" href="@yield('canonical', request()->url())">
+    {{-- Paginated lists keep their page number (page 2 is not a duplicate of page 1). --}}
+    @php($pageNumber = (int) request()->query('page', 1))
+    <link rel="canonical" href="@yield('canonical', request()->url() . ($pageNumber > 1 ? '?page=' . $pageNumber : ''))">
 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -62,6 +67,7 @@
     @stack('styles')
 
 
+    @include('seo.organization')
     @yield('schema')
     </head>
 

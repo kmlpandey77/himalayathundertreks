@@ -22,9 +22,11 @@ class BlogController extends Controller
 
     public function view(Blog $blog, $slug)
     {
-        if(!$blog->slug == $slug) abort(404);
-        $blog = Blog::where('slug',$slug)->first();
-        $other_blogs = Blog::where('id','<>',$blog->id)->orderby('event_date', 'desc')->limit(10)->orderby('event_date', 'desc')->get();
+        // Old or mistyped slugs redirect to the canonical URL instead of erroring.
+        if ($blog->slug !== $slug) {
+            return redirect($blog->url, 301);
+        }
+        $other_blogs = Blog::where('id','<>',$blog->id)->orderby('event_date', 'desc')->orderby('created_at', 'desc')->limit(10)->get();
         return view('blog.view', compact('blog','other_blogs'));
     }
 

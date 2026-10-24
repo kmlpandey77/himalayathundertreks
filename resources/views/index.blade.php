@@ -175,7 +175,7 @@
         </h2>
         <div class="row justify-content-center">
             @foreach ($blogs as $key=>$blog)
-            @include('blog.card')
+            @include('blog.card', ['homeRow' => true, 'headingTag' => 'h3'])
             @endforeach
         </div>
         <div class="text-center">

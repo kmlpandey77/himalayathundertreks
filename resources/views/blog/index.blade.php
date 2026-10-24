@@ -17,7 +17,7 @@
 <section class="travel-blog content gray-bg {{ $page->slug }}">
     <div class="container">
         <section class="overview">
-            <h1>
+            <h1 class="blog-heading">
                 {{ $page->title }}
             </h1>
             @if ($blogs->count())
@@ -25,12 +25,16 @@
                 @foreach ($blogs as $key=>$blog)
                     @include('blog.card')
                 @endforeach
-                {{ $blogs->links() }}
-            @else
-                <p>
-                    No record found!!
-                </p>
             </div>
+            @if ($blogs->hasPages())
+            <nav class="blog-pagination" aria-label="Blog pages">
+                {{ $blogs->links('vendor.pagination.bootstrap-4') }}
+            </nav>
+            @endif
+            @else
+            <p class="blog-empty">
+                No blog posts yet. Check back soon.
+            </p>
             @endif
         </section>
     </div>

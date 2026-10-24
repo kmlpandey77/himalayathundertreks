@@ -10,6 +10,8 @@ web
 
 International travelers researching and booking a guided trek, tour, or custom adventure trip in Nepal, directly through the site (browsing destinations/activities, reading itineraries and reviews, then booking or requesting a custom trip).
 
+The site is English-only and serves a global audience; no localization is planned.
+
 ## Product Purpose
 
 Himalaya Thunder Treks & Expedition Pvt. Ltd. is a Kathmandu (Thamel)-based trekking and tour operator. The site exists to showcase treks, tours, and expeditions (organized by region and activity type), build trust through reviews and proof (TripAdvisor integration, social channels), and convert visitors into bookings or custom-trip inquiries. Success means a visitor finds the right trip, trusts the operator, and books or submits a booking/customize request.
@@ -51,3 +53,7 @@ Family-run operation built on personal relationships with guides, not a large im
 - Every trip is a structured product (itinerary, facts, dates, pricing), not a brochure page — design and copy should respect that structure rather than flattening it.
 - Dual conversion paths matter: direct package booking and custom-trip inquiry are both first-class, not one favored at the expense of the other.
 - Proof does the persuading: reviews, ratings, and TripAdvisor presence carry more weight than self-described claims.
+
+## Accessibility & Inclusion
+
+WCAG 2.2 AA is the required floor for all public pages: text contrast, full keyboard operation with visible focus, meaningful alt text on trip and gallery imagery, and accessible forms for booking and custom-trip inquiries.

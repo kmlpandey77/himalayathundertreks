@@ -19,7 +19,7 @@ Route::get('administrative/login', 'Auth\LoginController@showLoginForm')->name('
 Route::post('administrative/login', 'Auth\LoginController@login');
 Route::post('administrative/logout', 'Auth\LoginController@logout')->name('logout');
 
-Route::group(['prefix' => 'administrative', 'middleware' => ['auth'], 'namespace' => 'Admin'], function () {
+Route::group(['prefix' => 'administrative', 'middleware' => ['auth', \App\Http\Middleware\ValidateAdminUploads::class], 'namespace' => 'Admin'], function () {
     // Route::get('/', 'DashboardController@dashboard')->name('dashboard');
     Route::get('/', function () {
         return view('admin.dashboard');

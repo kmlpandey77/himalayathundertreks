@@ -37,8 +37,8 @@ if(!function_exists('review_count')){
 
     function review_count()
     {
-        return \Cache::remember('review_count', now()->addDays(15), function(){
-            return \App\Review::count();
+        return \Cache::remember('review_count_approved', now()->addDays(15), function(){
+            return \App\Review::active()->count();
         });
     }
 }

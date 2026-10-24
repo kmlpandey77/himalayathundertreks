@@ -18,7 +18,7 @@ class ReviewController extends Controller
     public function index(Request $request)
     {
         $page =  Page::where('slug',$request->path())->first();
-        $reviews = Review::latest()->paginate(10);
+        $reviews = Review::active()->latest()->paginate(10); // approved only
         return view('reviews', compact('reviews', 'page'));
     }
 

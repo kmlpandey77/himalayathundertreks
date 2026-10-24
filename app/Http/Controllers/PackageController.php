@@ -20,7 +20,7 @@ class PackageController extends Controller
         $data['slides'] = $package->slides;
         $infoMenu = Menu::find(4);
         $data['infos'] = $infoMenu ? $infoMenu->pages : null;
-        $data['review'] = $package->reviews()->first();
+        $data['review'] = $package->reviews()->active()->first(); // approved only
         $data['trip_details'] = null;
         $data['checklist'] = null;
 

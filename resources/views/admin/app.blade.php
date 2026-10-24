@@ -91,7 +91,6 @@
                 </li>
                 <li><a href="{{ route('tags.index') }}"><i class="lnr lnr-tag"></i> <span>Tags</span></a></li>
                 <li><a href="{{ route('blogs.index') }}"><i class="lnr lnr-bold"></i> <span>Blogs</span></a></li>
-                <li><a href="{{ route('news.index') }}"><i class="lnr lnr-license"></i> <span>News</span></a></li>
                 <li><a href="{{ route('albums.index') }}"><i class="lnr lnr-picture"></i> <span>Photo Gallery</span></a>
                 </li>
                 <li><a href="{{ route('reviews.index') }}"><i class="lnr lnr-bubble"></i> <span>Review</span></a></li>

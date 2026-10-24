@@ -72,7 +72,6 @@ Route::group(['prefix' => 'administrative', 'middleware' => ['auth'], 'namespace
     Route::resource('subscriber-groups', 'SubscriberGroupController');
     Route::resource('newsletters', 'NewsletterController');
     Route::post('newsletters/resend/{newsletter}', 'NewsletterController@resend')->name('resend');
-    Route::resource('news', 'NewsController');
 
     Route::resource('slides', 'SlideController');
     Route::post('slides/order', 'SlideController@order')->name('slides.order');

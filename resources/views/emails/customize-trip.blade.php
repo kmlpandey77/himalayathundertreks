@@ -20,7 +20,7 @@ Trip Name: {{ $request->package }}<br>
 <br>
 
 **Message:**<br>
-"{!! nl2br($request->message) !!}"
+"{!! nl2br(e($request->message)) !!}"
 
 
 <br>

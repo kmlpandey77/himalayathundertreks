@@ -44,7 +44,6 @@
 
                                 <p>Price Range: {{ $hotel->price }}</p>
 
-                                <a href="{{ route('hotelbooking', $hotel->id) }}" class="button button-secondary button-small button-pillx js-modal-call">Book now</a>
                             </div>
                         </div>
 

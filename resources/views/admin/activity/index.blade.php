@@ -31,12 +31,12 @@ Activities
 						<td>{{ '/' . $activity->slug }}</td>
 						<td>
 							@if ($activity->status)
-								<a class="text-success" data-toggle="tooltip" data-placement="bottom" title="Click to hide" href="{{ route('activities.showhide', $activity->id) }}">
+								<a class="text-success" data-toggle="tooltip" data-placement="bottom" title="Click to hide" data-method="post" href="{{ route('activities.showhide', $activity->id) }}">
 								<i class="lnr lnr-checkmark-circle"></i>
 								Active
 							</a>
 							@else
-								<a class="text-danger" data-toggle="tooltip" data-placement="bottom" title="Click to show" href="{{ route('activities.showhide', $activity->id) }}">
+								<a class="text-danger" data-toggle="tooltip" data-placement="bottom" title="Click to show" data-method="post" href="{{ route('activities.showhide', $activity->id) }}">
 									<i class="lnr lnr-cross-circle"></i>
 									Draft
 								</a>

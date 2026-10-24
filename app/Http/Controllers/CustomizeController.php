@@ -23,13 +23,13 @@ class CustomizeController extends Controller
     {
         $this->validate($request, [
             'full_name' => 'required',
-            'email' => 'required',
+            'email' => 'required|email|max:150',
             'number_of_traveller' => 'required',
             'message' => 'required',
             'captcha' => 'required',
         ]);
 
-        if (\Session::get('rand_pass') <> $request->captcha) {
+        if (\Session::pull('rand_pass') <> $request->captcha) {
             return redirect()->back()->withErrors(['captcha' => 'Invalid Cpatcha'])->withInput();
         }
 

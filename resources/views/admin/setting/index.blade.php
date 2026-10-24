@@ -36,12 +36,12 @@ Settings
 							<td>{{ Str::limit(strip_tags($setting->value), 75) }}</td>
 							<td>
 								@if ($setting->status)
-									<a class="text-success" data-toggle="tooltip" data-placement="bottom" title="Click to hide" href="{{ route('settings.showhide', $setting->id) }}">
+									<a class="text-success" data-toggle="tooltip" data-placement="bottom" title="Click to hide" data-method="post" href="{{ route('settings.showhide', $setting->id) }}">
 										<i class="lnr lnr-checkmark-circle"></i>
 										Active
 									</a>
 								@else
-									<a class="text-danger" data-toggle="tooltip" data-placement="bottom" title="Click to show" href="{{ route('settings.showhide', $setting->id) }}">
+									<a class="text-danger" data-toggle="tooltip" data-placement="bottom" title="Click to show" data-method="post" href="{{ route('settings.showhide', $setting->id) }}">
 										<i class="lnr lnr-cross-circle"></i>
 										Draft
 									</a>

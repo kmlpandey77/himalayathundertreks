@@ -27,12 +27,12 @@ Slides
 						<td>{{ $slide->title }}</td>
 						<td>
 							@if ($slide->status)
-								<a class="text-success" data-toggle="tooltip" data-placement="bottom" title="Click to hide" href="{{ route('slides.showhide', $slide->id) }}">
+								<a class="text-success" data-toggle="tooltip" data-placement="bottom" title="Click to hide" data-method="post" href="{{ route('slides.showhide', $slide->id) }}">
 								<i class="lnr lnr-checkmark-circle"></i>
 								Active
 							</a>
 							@else
-								<a class="text-danger" data-toggle="tooltip" data-placement="bottom" title="Click to show" href="{{ route('slides.showhide', $slide->id) }}">
+								<a class="text-danger" data-toggle="tooltip" data-placement="bottom" title="Click to show" data-method="post" href="{{ route('slides.showhide', $slide->id) }}">
 									<i class="lnr lnr-cross-circle"></i>
 									Draft
 								</a>

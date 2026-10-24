@@ -63,12 +63,12 @@ Packages
 					<td title="{{ $package->title }}">{{ Str::limit($package->title, 50) }} - {{ $package->days() }}</td>
 					<td>
 						@if ($package->status)
-							<a class="text-success" data-toggle="tooltip" data-placement="bottom" title="Click to hide" href="{{ route('packages.showhide', $package->id) }}">
+							<a class="text-success" data-toggle="tooltip" data-placement="bottom" title="Click to hide" data-method="post" href="{{ route('packages.showhide', $package->id) }}">
 								<i class="lnr lnr-checkmark-circle"></i>
 								Active
 							</a>
 						@else
-							<a class="text-danger" data-toggle="tooltip" data-placement="bottom" title="Click to show" href="{{ route('packages.showhide', $package->id) }}">
+							<a class="text-danger" data-toggle="tooltip" data-placement="bottom" title="Click to show" data-method="post" href="{{ route('packages.showhide', $package->id) }}">
 								<i class="lnr lnr-cross-circle"></i>
 								Draft
 							</a>

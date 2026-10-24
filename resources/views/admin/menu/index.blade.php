@@ -39,12 +39,12 @@ Menus
 					<td>{{ Str::limit($menu->menu, 35) }}</td>					
 					<td>
 						@if ($menu->status)
-							<a class="text-success" data-toggle="tooltip" data-placement="bottom" title="Click to hide" href="{{ route('menus.showhide', $menu->id) }}">
+							<a class="text-success" data-toggle="tooltip" data-placement="bottom" title="Click to hide" data-method="post" href="{{ route('menus.showhide', $menu->id) }}">
 								<i class="lnr lnr-checkmark-circle"></i>
 								Active
 							</a>
 						@else
-							<a class="text-danger" data-toggle="tooltip" data-placement="bottom" title="Click to show" href="{{ route('menus.showhide', $menu->id) }}">
+							<a class="text-danger" data-toggle="tooltip" data-placement="bottom" title="Click to show" data-method="post" href="{{ route('menus.showhide', $menu->id) }}">
 								<i class="lnr lnr-cross-circle"></i>
 								Draft
 							</a>

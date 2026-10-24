@@ -37,11 +37,12 @@ class ReviewController extends Controller
             'name' => 'required',
             'country_id' => 'required',
             'details' => 'required',
+            'email' => 'nullable|email|max:150',
             'captcha' => 'required',
-            // 'image' => 'mimes:jpg,jpeg,png',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:5120',
         ]);
         // dd($request);
-        if (\Session::get('rand_pass') <> $request->captcha) {
+        if (\Session::pull('rand_pass') <> $request->captcha) {
             return redirect()->back()->withErrors(['captcha' => 'Invalid Cpatcha'])->withInput();
         }
 
@@ -51,12 +52,13 @@ class ReviewController extends Controller
         $review->country_id = $request->country_id;
         $review->title = $request->title;
         $review->package_id = $request->package_id;
-        $review->details = $request->details;
+        // Public submissions are plain text; reviews are rendered unescaped, so escape here.
+        $review->details = nl2br(e($request->details));
         $review->rating = $request->rating;
         $review->save();
 
         if ($request->hasFile('image')) {
-            $image_name = 'review-'.$review->id . '.'.$request->image->extension();
+            $image_name = 'review-'.$review->id . '.'.$request->image->guessExtension();
             $path = $request->image->move('uploads/reviews/', $image_name);
             $review->image = $image_name;
             $review->save();

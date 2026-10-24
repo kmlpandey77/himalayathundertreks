@@ -31,7 +31,7 @@ class BookingController extends Controller
             $this->validate($request, [
                 'text_fname' => 'required',
                 'text_lname' => 'required',
-                'text_email' => 'required',
+                'text_email' => 'required|email|max:150',
                 // 'number_of_child_traveller' => 'required',
                 'number_of_adult_traveller' => 'required',
                 'check_in' => 'required',
@@ -39,7 +39,7 @@ class BookingController extends Controller
                 'captcha' => 'required',
             ]);
             
-            if (\Session::get('rand_pass') <> $request->captcha) {
+            if (\Session::pull('rand_pass') <> $request->captcha) {
                 return redirect()->back()->withErrors(['captcha' => 'Invalid Cpatcha'])->withInput();
             }
 
@@ -101,14 +101,14 @@ class BookingController extends Controller
     {
         $this->validate($request, [
             'full_name' => 'required',
-            'email' => 'required',
+            'email' => 'required|email|max:150',
             'country' => 'required',
             'message' => 'required',
             'captcha' => 'required',
         ]);
 
 
-        if(\Session::get('rand_pass') <> $request->captcha){
+        if(\Session::pull('rand_pass') <> $request->captcha){
             return redirect()->back()->withErrors(['inquiry_captcha' => 'Invalid Cpatcha'])->withInput();
         }
 
@@ -134,7 +134,7 @@ class BookingController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'email' => 'required',
+            'email' => 'required|email|max:150',
             'phone' => 'required',
         ]);
 
@@ -156,7 +156,7 @@ class BookingController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'email' => 'required',
+            'email' => 'required|email|max:150',
             'country' => 'required',
         ]);
 
@@ -174,7 +174,7 @@ class BookingController extends Controller
     public function subscriber(Request $request)
     {
         $this->validate($request, [
-            'email' => 'required',
+            'email' => 'required|email|max:150',
         ]);
 
         $subscriber = Subscriber::where('email', $request->email)->first();

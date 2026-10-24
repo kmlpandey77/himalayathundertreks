@@ -21,7 +21,7 @@ Trip Name: {{ $request->trip_name }}<br>
 **Airport pickup?:** {{ $request->pickup }}<br>
 <br>
 **Message:**<br>
-"{!! nl2br($request->texta_message) !!}"
+"{!! nl2br(e($request->texta_message)) !!}"
 
 
 <br>

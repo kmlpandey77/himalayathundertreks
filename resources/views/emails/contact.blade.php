@@ -13,7 +13,7 @@
 
 <p>
 	<b>Message</b> <br>
-	"{!! nl2br($request->message) !!}"
+	"{!! nl2br(e($request->message)) !!}"
 </p>
 
 @endcomponent

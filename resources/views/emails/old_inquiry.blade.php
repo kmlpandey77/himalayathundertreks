@@ -19,7 +19,7 @@ Trip Name: {{ $request->inquiry_page }}
 
 
 **Message:**  
-"{!! nl2br($request->message) !!}"
+"{!! nl2br(e($request->message)) !!}"
 
 
 <br>

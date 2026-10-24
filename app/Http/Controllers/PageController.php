@@ -59,11 +59,11 @@ class PageController extends Controller
         if($request->isMethod('post')){
             $this->validate($request, [
                 'name' => 'required',
-                'email' => 'required',
+                'email' => 'required|email|max:150',
                 'message' => 'required',
                 'captcha' => 'required',
             ]);
-            if (\Session::get('rand_pass') <> $request->captcha) {
+            if (\Session::pull('rand_pass') <> $request->captcha) {
                 return redirect()->back()->withErrors(['captcha' => 'Invalid Cpatcha'])->withInput();
             }
             $subscriber = Subscriber::where('email', $request->email)->first();
@@ -152,44 +152,4 @@ class PageController extends Controller
         return view('city', compact('city'));
     }
 
-    // public function hotelbooking($id)
-    // {
-    //     $hotel =  Hotel::find($id);
-    //     return view('hotelbooking', compact('hotel'));
-    // }
-
-    public function hotelbooking(Request $request)
-    {
-        if($request->isMethod('post')){
-            $body = view('emails.hotel-booking', compact('request'));
-            // return $body;
-            $body = "$body";
-
-
-            $to = config('mail.from.name') ." <".config('mail.from.address').">";
-            $subject = "Hotel Booking :: Explore Vacation";
-
-
-            $headers = "MIME-Version: 1.0" . "\r\n";
-            $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-            $headers .= "From: $request->name <$request->email>" . "\r\n";
-            $headers .= "Reply-To: $request->name <$request->email>" . "\r\n";
-            $headers .= 'Bcc: ' . config('mail.from.name') . '<sales.explorevacation@gmail.com>' . "\r\n";
-
-            try{
-
-                mail($to,$subject,$body,$headers);
-
-             }catch(Exception $e){
-
-                dd($e);
-
-             }
-
-            return redirect()->route('thankyou');
-        }
-
-        $data['hotel'] = Hotel::find($request->id);
-        return view('hotelbooking', $data);
-    }
 }

@@ -17,7 +17,7 @@ Trip Name: {{ $request->package }}
 **Flight Destination:** {{ $request->flight_destination }}  
 
 **Message:**  
-"{!! nl2br($request->message) !!}"
+"{!! nl2br(e($request->message)) !!}"
 
 
 <br>

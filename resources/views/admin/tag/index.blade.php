@@ -39,12 +39,12 @@ Tags
 					<td>{{ Str::limit($tag->title, 35) }}</td>					
 					<td>
 						@if ($tag->status)
-							<a class="text-success" data-toggle="tooltip" data-placement="bottom" title="Click to hide" href="{{ route('tags.showhide', $tag->id) }}">
+							<a class="text-success" data-toggle="tooltip" data-placement="bottom" title="Click to hide" data-method="post" href="{{ route('tags.showhide', $tag->id) }}">
 								<i class="lnr lnr-checkmark-circle"></i>
 								Active
 							</a>
 						@else
-							<a class="text-danger" data-toggle="tooltip" data-placement="bottom" title="Click to show" href="{{ route('tags.showhide', $tag->id) }}">
+							<a class="text-danger" data-toggle="tooltip" data-placement="bottom" title="Click to show" data-method="post" href="{{ route('tags.showhide', $tag->id) }}">
 								<i class="lnr lnr-cross-circle"></i>
 								Draft
 							</a>

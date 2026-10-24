@@ -54,12 +54,12 @@ Pages
 					<td>{{ $page->slug == 'home' ? '/' : '/' . Str::limit($page->slug, 35) }}</td>
 					<td>
 						@if ($page->status)
-							<a class="text-success" data-toggle="tooltip" data-placement="bottom" title="Click to hide" href="{{ route('pages.showhide', $page->id) }}">
+							<a class="text-success" data-toggle="tooltip" data-placement="bottom" title="Click to hide" data-method="post" href="{{ route('pages.showhide', $page->id) }}">
 								<i class="lnr lnr-checkmark-circle"></i>
 								Active
 							</a>
 						@else
-							<a class="text-danger" data-toggle="tooltip" data-placement="bottom" title="Click to show" href="{{ route('pages.showhide', $page->id) }}">
+							<a class="text-danger" data-toggle="tooltip" data-placement="bottom" title="Click to show" data-method="post" href="{{ route('pages.showhide', $page->id) }}">
 								<i class="lnr lnr-cross-circle"></i>
 								Draft
 							</a>

@@ -17,6 +17,9 @@
 
     Options -Indexes
 
+    # Never execute scripts from user/admin upload folders
+    RewriteRule ^(uploads|photos|files|storage)/.*\.(php[0-9]?|phtml|phar|pht|cgi|pl|py|sh)$ - [F,NC,L]
+
     RewriteCond %{THE_REQUEST} ^.*/index\.php
     RewriteRule ^index.php(.*)$ $1 [R=301,L]
 

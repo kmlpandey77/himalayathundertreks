@@ -113,9 +113,9 @@
         </div>
         <ul class="navbar-nav ml-auto header_right">
             <li class="name"><b>{{ Auth::user()->name }}</b></li>
-            <li><a href="{{ route('cache-clear') }}">Cache Clear</a></li>
+            <li><a data-method="post" href="{{ route('cache-clear') }}">Cache Clear</a></li>
             <li><a href="{{ route('settings.index') }}"> <i class="lnr lnr-cog"></i> Setting</a></li>
-            <li class="logout"><a href="{{ route('logout') }}"> Logout <i class="lnr lnr-exit"></i></a></li>
+            <li class="logout"><a data-method="post" href="{{ route('logout') }}"> Logout <i class="lnr lnr-exit"></i></a></li>
         </ul>
     </div>
 </nav>
@@ -166,6 +166,26 @@
     </div>
 </div>
 
+<script>
+    // Links marked data-method="post" (show/hide, delete, cache clear, logout) change data,
+    // so they are sent as POST with the CSRF token instead of a plain GET.
+    document.addEventListener('click', function (e) {
+        var link = e.target.closest('a[data-method="post"]');
+        if (!link || e.defaultPrevented) return; // defaultPrevented: an inline confirm() was cancelled
+        e.preventDefault();
+        var form = document.createElement('form');
+        form.method = 'POST';
+        form.action = link.href;
+        form.style.display = 'none';
+        var token = document.createElement('input');
+        token.type = 'hidden';
+        token.name = '_token';
+        token.value = document.querySelector('meta[name="csrf-token"]').content;
+        form.appendChild(token);
+        document.body.appendChild(form);
+        form.submit();
+    });
+</script>
 <script src="{{ asset('vendors/jquery-ui/external/jquery/jquery.js') }}"></script>
 <script src="{{ asset('vendors/jquery-ui/jquery-ui.min.js') }}"></script>
 <script src="{{ asset('vendors/popper.min.js') }}"></script>

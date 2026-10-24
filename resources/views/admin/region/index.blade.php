@@ -33,12 +33,12 @@ Regions
 						<td>{{ '/' . $region->slug }}</td>
 						<td>
 							@if ($region->status)
-								<a class="text-success" data-toggle="tooltip" data-placement="bottom" title="Click to hide" href="{{ route('regions.showhide', $region->id) }}">
+								<a class="text-success" data-toggle="tooltip" data-placement="bottom" title="Click to hide" data-method="post" href="{{ route('regions.showhide', $region->id) }}">
 								<i class="lnr lnr-checkmark-circle"></i>
 								Active
 							</a>
 							@else
-								<a class="text-danger" data-toggle="tooltip" data-placement="bottom" title="Click to show" href="{{ route('regions.showhide', $region->id) }}">
+								<a class="text-danger" data-toggle="tooltip" data-placement="bottom" title="Click to show" data-method="post" href="{{ route('regions.showhide', $region->id) }}">
 									<i class="lnr lnr-cross-circle"></i>
 									Draft
 								</a>

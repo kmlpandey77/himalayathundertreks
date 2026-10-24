@@ -1,0 +1,32 @@
+*~
+/node_modules
+/public/hot
+/public/logs
+/public/photos
+/public/uploads
+/public/files
+/public/storage
+/storage/logs/
+/storage/*.key
+/vendor
+/.idea
+/.vagrant
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+.env
+.sass-cache
+vendor.zip
+
+# Local deploy credentials / data dumps - never commit
+sftp-config.json
+/public/bckup
+
+.phpunit.result.cache
+/.phpunit.cache
+.env.backup
+.env.production
+/.vscode
+# Legacy DB dumps (contain user data) - keep local only
+/*.sql

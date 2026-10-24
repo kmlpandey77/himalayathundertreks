@@ -1,0 +1,29 @@
+<div class="card-header sticky-top text-right" style="top:67px; background: #F8F9FA;">
+	<button type="submit" class="button button-primary button-rounded button-small" name="save_close" value="save_close">
+		<i class="lnr lnr-inbox"></i> <span>Save & Close</span>
+	</button>
+	<button type="submit" class="button button-secondary button-rounded button-small" name="save" value="save">
+		<i class="lnr lnr-inbox"></i> <span>Save</span>
+
+	</button>
+	<a href="{{ route('menus.index') }}" class="button button-plain_gray button-rounded button-small"><i class="lnr lnr-exit"></i> <span>Cancel</span></a>
+</div>
+
+<div class="card-body">
+	<div class="form-group row">
+		<label class="col-sm-2 col-form-label text-right" for="menu">Menu</label>
+		<div class="col-sm-8">
+			<input class="form-control" placeholder="Menu" name="menu" value="{{ old('menu', isset($menu) ? $menu->menu : null) }}"
+			 type="text" id="menu">
+		</div>
+	</div>
+
+	<div class="form-group row">
+		<div class="col-sm-3 offset-sm-2">
+			<div class="custom-control custom-checkbox mr-sm-2">
+				<input type="checkbox" class="custom-control-input" id="status" name="status"  value="1" {{ old('status', isset($menu) ? $menu->status : 1) == 1 ? 'checked=checked' : null  }}>
+				<label class="custom-control-label" for="status">Active</label>
+			</div>
+		</div>
+	</div>
+</div>

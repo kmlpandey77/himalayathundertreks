@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-09T00:00:00.000Z",
+  "title": "Design System: Himalaya Thunder Treks",
+  "extensions": {
+    "colorMeta": {
+      "glacier-teal": {
+        "role": "primary",
+        "displayName": "Glacier Teal",
+        "canonical": "#2C9BBA",
+        "tonalRamp": ["oklch(20% 0.05 220)", "oklch(28% 0.07 220)", "oklch(36% 0.08 220)", "oklch(45% 0.09 220)", "oklch(56% 0.10 220)", "oklch(68% 0.09 220)", "oklch(82% 0.06 220)", "oklch(94% 0.03 220)"]
+      },
+      "fjord-teal-deep": {
+        "role": "primary-deep",
+        "displayName": "Fjord Teal Deep",
+        "canonical": "#1D6377",
+        "tonalRamp": ["oklch(16% 0.04 215)", "oklch(24% 0.06 215)", "oklch(32% 0.07 215)", "oklch(40% 0.08 215)", "oklch(48% 0.08 215)", "oklch(60% 0.07 215)", "oklch(76% 0.05 215)", "oklch(90% 0.03 215)"]
+      },
+      "signal-orange": {
+        "role": "secondary",
+        "displayName": "Signal Orange",
+        "canonical": "#F89222",
+        "tonalRamp": ["oklch(22% 0.06 55)", "oklch(32% 0.09 55)", "oklch(42% 0.12 55)", "oklch(52% 0.15 55)", "oklch(64% 0.17 55)", "oklch(74% 0.16 55)", "oklch(85% 0.11 55)", "oklch(95% 0.05 55)"]
+      },
+      "basecamp-ink": {
+        "role": "neutral-dark",
+        "displayName": "Basecamp Ink",
+        "canonical": "#0C1C1F",
+        "tonalRamp": ["oklch(10% 0.01 210)", "oklch(18% 0.015 210)", "oklch(26% 0.015 210)", "oklch(35% 0.015 210)", "oklch(45% 0.01 210)", "oklch(58% 0.01 210)", "oklch(74% 0.008 210)", "oklch(90% 0.005 210)"]
+      },
+      "slate-text": {
+        "role": "neutral",
+        "displayName": "Slate Text",
+        "canonical": "#333333",
+        "tonalRamp": ["oklch(12% 0 0)", "oklch(22% 0 0)", "oklch(32% 0 0)", "oklch(42% 0 0)", "oklch(52% 0 0)", "oklch(64% 0 0)", "oklch(78% 0 0)", "oklch(92% 0 0)"]
+      },
+      "surface": {
+        "role": "neutral-surface",
+        "displayName": "Surface White",
+        "canonical": "#FFFFFF",
+        "tonalRamp": ["oklch(20% 0 0)", "oklch(35% 0 0)", "oklch(50% 0 0)", "oklch(65% 0 0)", "oklch(80% 0 0)", "oklch(90% 0 0)", "oklch(96% 0 0)", "oklch(100% 0 0)"]
+      },
+      "surface-muted": {
+        "role": "neutral-surface",
+        "displayName": "Surface Muted",
+        "canonical": "#F1F1F1",
+        "tonalRamp": ["oklch(20% 0 0)", "oklch(35% 0 0)", "oklch(50% 0 0)", "oklch(65% 0 0)", "oklch(80% 0 0)", "oklch(90% 0 0)", "oklch(95% 0 0)", "oklch(97% 0 0)"]
+      },
+      "page-bg": {
+        "role": "neutral-background",
+        "displayName": "Page Background",
+        "canonical": "#F8F8F8",
+        "tonalRamp": ["oklch(20% 0 0)", "oklch(35% 0 0)", "oklch(50% 0 0)", "oklch(65% 0 0)", "oklch(80% 0 0)", "oklch(90% 0 0)", "oklch(95% 0 0)", "oklch(97.5% 0 0)"]
+      },
+      "border-hairline": {
+        "role": "neutral-border",
+        "displayName": "Hairline Border",
+        "canonical": "#DEDEDE",
+        "tonalRamp": ["oklch(20% 0 0)", "oklch(35% 0 0)", "oklch(50% 0 0)", "oklch(65% 0 0)", "oklch(78% 0 0)", "oklch(87% 0 0)", "oklch(92% 0 0)", "oklch(96% 0 0)"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Homepage hero line (\"Welcome to...\") and page-opening statements." },
+      "heading": { "displayName": "Heading", "purpose": "Section titles and card titles." },
+      "eyebrow": { "displayName": "Eyebrow", "purpose": "Small uppercase label above a section title." },
+      "body": { "displayName": "Body", "purpose": "Paragraph copy, descriptions, package blurbs." }
+    },
+    "shadows": [
+      { "name": "card-ambient", "value": "0 0 10px rgba(0,0,0,0.08)", "purpose": "The only elevation in the system; applied to trip/package cards alongside a hairline border." }
+    ],
+    "motion": [
+      { "name": "button-transition", "value": "all 0.3s", "purpose": "Button hover/active color transitions." },
+      { "name": "image-hover", "value": "all 0.5s", "purpose": "Card image hover transitions." }
+    ],
+    "breakpoints": [
+      { "name": "nav-switch", "value": "720px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Default call-to-action: Glacier Teal fill, sharp corners, uppercase label.",
+      "html": "<a href=\"#\" class=\"ds-btn ds-btn-primary\">Book Now</a>",
+      "css": ".ds-btn{display:inline-block;font-family:'Poppins',sans-serif;font-weight:300;font-size:18px;line-height:40px;height:40px;padding:0 40px;text-align:center;text-decoration:none;text-transform:uppercase;cursor:pointer;transition:all .3s;}.ds-btn-primary{background-color:#2C9BBA;border:1px solid #2C9BBA;color:#FFFFFF;}.ds-btn-primary:hover,.ds-btn-primary:focus-visible{background-color:#46B4D3;border-color:#46B4D3;color:#FFFFFF;}.ds-btn-primary:active{background-color:#3895AF;border-color:#3895AF;color:#1D6377;}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Orange-accent call-to-action, used sparingly where the accent itself should be the ask.",
+      "html": "<a href=\"#\" class=\"ds-btn ds-btn-secondary\">Customize Trip</a>",
+      "css": ".ds-btn{display:inline-block;font-family:'Poppins',sans-serif;font-weight:300;font-size:18px;line-height:40px;height:40px;padding:0 40px;text-align:center;text-decoration:none;text-transform:uppercase;cursor:pointer;transition:all .3s;}.ds-btn-secondary{background-color:#F89222;border:1px solid #F89222;color:#FFFFFF;}.ds-btn-secondary:hover,.ds-btn-secondary:focus-visible{background-color:#fa9f3e;border-color:#fa9f3e;color:#FFFFFF;}"
+    },
+    {
+      "name": "Pill CTA Button",
+      "kind": "button",
+      "refersTo": "button-rounded",
+      "description": "Full-pill variant used for \"View all\" / \"Read More\" links at the end of a section.",
+      "html": "<a href=\"#\" class=\"ds-btn ds-btn-primary ds-btn-pill\">View All</a>",
+      "css": ".ds-btn{display:inline-block;font-family:'Poppins',sans-serif;font-weight:300;font-size:18px;line-height:40px;height:40px;padding:0 40px;text-align:center;text-decoration:none;text-transform:uppercase;cursor:pointer;transition:all .3s;}.ds-btn-primary{background-color:#2C9BBA;border:1px solid #2C9BBA;color:#FFFFFF;}.ds-btn-primary:hover,.ds-btn-primary:focus-visible{background-color:#46B4D3;border-color:#46B4D3;}.ds-btn-pill{border-radius:200px;}"
+    },
+    {
+      "name": "Trip Card",
+      "kind": "card",
+      "refersTo": "trip-card",
+      "description": "The canonical package/trek card: fixed-width image rail, title in Fjord Teal, muted fact strip with orange icons, teal footer bar.",
+      "html": "<div class=\"ds-trip-card\"><div class=\"ds-trip-media\" style=\"background-image:url('https://images.unsplash.com/photo-1544198365-f5d60b6d8190?w=400')\"></div><div class=\"ds-trip-body\"><h3><a href=\"#\">Everest Base Camp Trek</a></h3><p>A classic 14-day journey through Sherpa villages to the foot of the world's highest peak.</p></div></div><div class=\"ds-trip-facts\"><span><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"#F89222\"><path d=\"M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5\"/></svg> Moderate</span><span><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"#F89222\"><circle cx=\"12\" cy=\"12\" r=\"9\" fill=\"none\" stroke=\"#F89222\" stroke-width=\"2\"/><path d=\"M12 7v5l3 3\" fill=\"none\" stroke=\"#F89222\" stroke-width=\"2\"/></svg> 14 Days</span></div><a href=\"#\" class=\"ds-trip-more\">More Details</a>",
+      "css": ".ds-trip-card{display:flex;background:#FFFFFF;border:1px solid #DEDEDE;box-shadow:0 0 10px rgba(0,0,0,0.08);}.ds-trip-media{flex:0 0 200px;height:180px;background-size:cover;background-position:center;transition:all .5s;}.ds-trip-body{padding:20px;font-family:'Poppins',sans-serif;}.ds-trip-body h3{font-family:'Montserrat',sans-serif;font-weight:400;font-size:24px;margin:0 0 8px;}.ds-trip-body h3 a{color:#1D6377;text-decoration:none;}.ds-trip-body p{margin:0;font-size:14px;line-height:20px;color:#333333;}.ds-trip-facts{display:flex;background:#F1F1F1;border-top:1px solid #DEDEDE;font-family:'Poppins',sans-serif;font-size:14px;}.ds-trip-facts span{flex:1;text-align:center;padding:5px 0;border-right:1px solid #DEDEDE;display:flex;align-items:center;justify-content:center;gap:5px;}.ds-trip-more{display:block;text-align:center;background:#2C9BBA;color:#FFFFFF;font-family:'Montserrat',sans-serif;text-decoration:none;padding:5px 0;}.ds-trip-more:hover,.ds-trip-more:focus-visible{background:#1D6377;}"
+    },
+    {
+      "name": "Main Navigation Link",
+      "kind": "nav",
+      "refersTo": "navbar-link",
+      "description": "Desktop nav link on the Glacier Teal bar, with a Fjord-Teal dropdown and orange active state.",
+      "html": "<nav class=\"ds-navbar\"><a href=\"#\" class=\"ds-nav-link\">Treks</a><div class=\"ds-nav-dropdown\"><a href=\"#\" class=\"ds-nav-item ds-nav-item-active\">Everest Region</a><a href=\"#\" class=\"ds-nav-item\">Annapurna Region</a></div></nav>",
+      "css": ".ds-navbar{background:#2C9BBA;padding:5px 0;position:relative;font-family:'Poppins',sans-serif;}.ds-nav-link{display:inline-block;padding:10px 15px;color:#FFFFFF;text-decoration:none;}.ds-nav-link:hover,.ds-nav-link:focus-visible{color:#F89222;}.ds-nav-dropdown{background:#1D6377;min-width:200px;border-radius:0;}.ds-nav-item{display:block;padding:10px 15px;color:#FFFFFF;text-decoration:none;font-size:14px;border-bottom:1px solid rgba(0,0,0,0.1);}.ds-nav-item-active{background:rgba(0,0,0,0.08);color:#F89222;}"
+    },
+    {
+      "name": "Carousel Control",
+      "kind": "custom",
+      "refersTo": "owl-nav-button",
+      "description": "Circular prev/next control used on the hero slider and review carousel, the one place translucency appears over imagery.",
+      "html": "<button class=\"ds-carousel-btn\" aria-label=\"Next slide\"><svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"#fff\" stroke-width=\"2\"><path d=\"M9 6l6 6-6 6\"/></svg></button>",
+      "css": ".ds-carousel-btn{width:30px;height:30px;border-radius:50%;background:rgba(29,99,119,0.6);border:1px solid #1D6377;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s;}.ds-carousel-btn:hover,.ds-carousel-btn:focus-visible{background:#1D6377;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Basecamp Briefing",
+    "overview": "This is the look of a trek operator who has run the logistics a thousand times and wants you to feel that before you've even picked a route: a dark, factual strip up top stating the government registration number next to the reassurance (\"your exciting Himalaya experience is in safe hands\"), a calm glacier-teal identity running through links, chrome, and primary actions, and a single flag-orange used only where something needs a traveler's eyes — an icon, an active menu item, a price tag. Nothing about this system performs; it reports. Cards are flat rectangles with a whisper of shadow, not stacked paper or glossy tiles. Headings are set in a clean condensed sans at regular weight — never bold, never shouting — because the confidence here comes from specificity (altitude figures, duration, government reg. numbers, WhatsApp numbers with a real first name attached) rather than from typographic volume. It is not a glossy destination-marketing site chasing emotion through full-bleed imagery; imagery supports the briefing, it doesn't replace it. The system was never designed to feel minimal for its own sake — it inherited a bootstrap-era pragmatism (Bootstrap 4 grid, Owl Carousel, SmartMenus) — but that pragmatism is the point: it reads as operationally credible rather than as a template.",
+    "keyCharacteristics": [
+      "Calm, cool, glacier-blue identity color rather than an \"adventure\" red/orange-dominant palette",
+      "A single accent (signal orange) spent sparingly on icons and active states — never on large surfaces",
+      "Flat, sharp-cornered cards and bars; roundness is reserved for pill/CTA buttons and circular controls",
+      "Regular-weight (not bold) Montserrat headings paired with Poppins body text",
+      "A persistent top strip carrying government registration and a trust tagline — credibility stated as fact, not as a badge graphic"
+    ],
+    "rules": [
+      { "name": "The One-Accent Rule", "body": "Orange never fills a background larger than an icon or a button; its job is to mark the thing worth noticing, not to decorate.", "section": "colors" },
+      { "name": "The Teal-Never-Loud Rule", "body": "Teal is the identity color precisely because it stays calm — it is never paired with saturated warm colors at equal weight, which is why orange is rationed instead of balanced against it.", "section": "colors" },
+      { "name": "The No-Bold-Headings Rule", "body": "Headings never go above weight 400. Hierarchy is built with size and the eyebrow label, not boldness.", "section": "typography" },
+      { "name": "The Whisper-Shadow Rule", "body": "If a shadow is added, it stays at or below rgba(0,0,0,0.08). A card that announces its elevation is off-system.", "section": "elevation" },
+      { "name": "The Content-Stays-Sharp Rule", "body": "Anything that holds information (cards, bands, menus) is square-cornered. Roundness is earned only by things you click to act.", "section": "shapes" }
+    ],
+    "dos": [
+      "Do keep orange confined to icons, active states, and at most one CTA per view — it is a pointer, not a fill color.",
+      "Do keep headings at Montserrat weight 400; build emphasis with size and the uppercase eyebrow label instead of bold.",
+      "Do pair sharp-cornered content surfaces with pill or circular interactive controls — don't round a card to match a button.",
+      "Do keep card elevation at or below the Card Ambient shadow value; let the hairline border and background contrast do most of the separation work.",
+      "Do carry the top utility strip's factual tone (registration numbers, direct phone lines with a first name) into any new trust-building surface — specificity is this brand's credibility mechanism, not badges or stock imagery."
+    ],
+    "donts": [
+      "Don't introduce a second saturated accent color alongside Signal Orange — the system's calm comes from having exactly one \"loud\" color.",
+      "Don't give structural surfaces (cards, bands, menus) rounded corners; that roundness vocabulary is reserved for buttons and circular controls.",
+      "Don't bold headings or increase their weight for emphasis.",
+      "Don't add drop shadows beyond the whisper-level Card Ambient value — nothing in this system should look like it's floating."
+    ]
+  }
+}

@@ -1,0 +1,193 @@
+/*
+ * Trip page photo grid (resources/views/package.blade.php).
+ * Plain CSS, loaded only on trip pages via @push('styles').
+ * Colours follow public/sass/_variable.scss (primary #2C9BBA, primarydark #1D6377).
+ */
+
+.innerslide--grid {
+	min-height: 0;
+	background: #1D6377;
+}
+
+.trip-gallery {
+	display: grid;
+	gap: 4px;
+	height: 260px;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr;
+}
+
+.trip-gallery__tile {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	background: #1D6377;
+	cursor: zoom-in;
+}
+
+.trip-gallery__tile picture,
+.trip-gallery__tile img {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.trip-gallery__tile img {
+	object-fit: cover;
+	transition: transform .4s ease, opacity .4s ease;
+}
+
+.trip-gallery__tile:hover img,
+.trip-gallery__tile:focus img {
+	transform: scale(1.04);
+	opacity: .9;
+}
+
+.trip-gallery__tile:focus-visible {
+	outline: 3px solid #F89222;
+	outline-offset: -3px;
+}
+
+/* Phones: one large photo; the others are reachable through "View all photos". */
+.trip-gallery__tile:not(:first-child) {
+	display: none;
+}
+
+.trip-gallery__more {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(0, 0, 0, .45);
+	color: #fff;
+	font-size: 1.4em;
+	font-weight: 600;
+}
+
+.trip-gallery__all {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	z-index: 100;
+	padding: 6px 14px;
+	border: 0;
+	border-radius: 20px;
+	background: rgba(255, 255, 255, .92);
+	color: #1D6377;
+	font-size: 13px;
+	font-weight: 600;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
+	cursor: pointer;
+}
+
+.trip-gallery__all:hover,
+.trip-gallery__all:focus {
+	background: #fff;
+	color: #2C9BBA;
+}
+
+/* The title overlay sits on top of the grid; let clicks fall through to the photos. */
+.innerslide--grid .innerslide_title {
+	pointer-events: none;
+}
+
+.innerslide--grid .innerslide_title a,
+.innerslide--grid .innerslide_title button {
+	pointer-events: auto;
+}
+
+@media (min-width: 768px) {
+	.trip-gallery {
+		height: 460px;
+	}
+
+	.trip-gallery__tile:not(:first-child) {
+		display: block;
+	}
+
+	.trip-gallery--2 {
+		grid-template-columns: 2fr 1fr;
+	}
+
+	.trip-gallery--3 {
+		grid-template-columns: 2fr 1fr;
+		grid-template-rows: 1fr 1fr;
+	}
+
+	.trip-gallery--3 .trip-gallery__tile:first-child {
+		grid-row: span 2;
+	}
+
+	.trip-gallery--4,
+	.trip-gallery--5 {
+		grid-template-columns: 2fr 1fr 1fr;
+		grid-template-rows: 1fr 1fr;
+	}
+
+	.trip-gallery--4 .trip-gallery__tile:first-child,
+	.trip-gallery--5 .trip-gallery__tile:first-child {
+		grid-row: span 2;
+	}
+
+	.trip-gallery--4 .trip-gallery__tile:last-child {
+		grid-column: span 2;
+	}
+}
+
+@media (min-width: 1200px) {
+	.trip-gallery {
+		height: 520px;
+	}
+}
+
+/* Full-size viewer */
+.trip-gallery-modal .modal-dialog {
+	max-width: 1140px;
+}
+
+@media (max-width: 575.98px) {
+	.trip-gallery-modal .modal-dialog {
+		margin: 8px;
+	}
+}
+
+.trip-gallery-modal .modal-content {
+	background: #111;
+	border: 0;
+	border-radius: 4px;
+	overflow: hidden;
+}
+
+.trip-gallery-modal .close {
+	position: absolute;
+	top: 8px;
+	right: 12px;
+	z-index: 10;
+	color: #fff;
+	opacity: .85;
+	font-size: 2rem;
+	text-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+}
+
+.trip-gallery-modal .close:hover {
+	color: #fff;
+	opacity: 1;
+}
+
+.trip-gallery-modal .carousel-item img {
+	max-height: 80vh;
+	object-fit: contain;
+	background: #111;
+}
+
+.trip-gallery-modal__caption {
+	margin: 0;
+	padding: 10px 15px;
+	color: #eee;
+	text-align: center;
+	font-size: 14px;
+}

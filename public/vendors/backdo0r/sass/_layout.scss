@@ -1,0 +1,135 @@
+.content {
+    background: #f1f1f1;
+    margin: 0;
+    padding: 0 20px 40px 30px;
+    @media #{$md} {
+        margin-left: 120px;
+    }
+    h1 {
+        padding-top: 1.2rem;
+        padding-bottom: 1rem;
+        margin-bottom: 0;
+        font-size: 2.5rem;
+        top: 70px;
+        background: #f1f1f1;        
+    }
+}
+
+/* DASHBORD PAGE */
+.dashboard {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.dashboard li a {
+    border: 1px solid #c0c0c0;
+    background: #fff;
+    display: block;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.dashboard li a i {
+    margin: 30px 0;
+}
+
+.dashboard li a div.dashboard-footer {
+    overflow: hidden;
+    border-top: 1px solid #c0c0c0;
+    padding: 10px;
+    background: #e1e1e1;
+}
+
+.dashboard li a div.dashboard-footer h3 {
+    float: left;
+    margin: 0;
+    font-size: 18px;
+}
+
+.dashboard li a div.dashboard-footer span {
+    float: right;
+}
+
+/* LoutsCMS FOOTER */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer p {
+    background: #f1f1f1;
+    margin: 0;
+    padding: 5px 15px;
+    border-top: 1px solid #ddd;
+    display: block;
+    @media #{$md} {
+        margin-left: 120px;
+    }
+}
+
+
+
+.form_wrap label.control-label {
+    font-weight: normal;
+    font-size: 16px;
+}
+
+.simplebar-scrollbar::before {
+    background: #fff;
+}
+
+.delete {
+    position: absolute;
+    top: 5px;
+    left: 25px;
+    cursor: pointer;
+    background: red;
+    padding: 2px 8px;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.nav>li>a {
+    color: #333;
+}
+
+.dash-item .panel-body {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.dash-item .panel-footer {
+    font-size: 22px;
+    font-weight: 300;
+}
+
+.dash-item a {
+    text-decoration: none;
+}
+
+.dash-item a i {
+    color: #6d5b65;
+    font-size: 72px;
+}
+
+.dash-item a:hover i {
+    color: #9F165F
+}
+
+.dash-item .panel-footer {
+    color: #333;
+    overflow: hidden;
+}
+
+.spin {
+    -webkit-transform-origin: 50% 58%;
+    transform-origin: 50% 58%;
+    -ms-transform-origin: 50% 58%;
+    /* IE 9 */
+    -webkit-animation: spin .2s infinite linear;
+    -moz-animation: spin .2s infinite linear;
+    -o-animation: spin .2s infinite linear;
+    animation: spin .2s infinite linear;
+}

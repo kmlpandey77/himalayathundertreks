@@ -1,0 +1,163 @@
+.main-menu {
+	z-index: 1021;
+	@media #{$md} {
+		background: color('primary');
+	}
+	background: white;
+	.navbar{
+		padding: 5px 0;
+	}
+
+	.navbar-brand {
+		@media #{$md} {
+			margin-left: -15px;
+		}
+
+		&.hide {
+			@media #{$lg} {
+				display: none;
+			}
+		}
+
+		img {
+			width: 150px;
+			@media #{$md} {
+				width: 250px;
+			}
+		}
+	}
+
+	.navbar-collapse{
+		background: color('primary');
+	}
+
+	.navbar-nav {
+		li.nav-item{
+			.nav-link {
+				padding-left: 15px;
+				padding-right: 15px;
+				color: #fff;
+				// font-family: $heading-font;
+				&:hover,
+				&:focus {
+					color: color('secondary');
+				}
+			}
+			@media #{$md} {
+				&:first-child{
+					a{
+						padding-left: 0;
+					}
+				}
+				&:last-child{
+					a{
+						padding-right: 0;
+					}
+				}
+			}
+		}
+
+		.show{
+			&:after{
+				bottom: 0;
+				left: 40px;
+				border: solid transparent;
+				height: 0;
+				width: 0;
+				position: absolute;
+				pointer-events: none;
+				border-color: rgba(136, 183, 213, 0);
+				border-bottom-color: color('primarydark');
+				border-width: 5px;
+				margin-left: -5px;
+				content: " ";
+			}
+
+			.dropdown-menu{
+				.show{
+					&:after{
+						border-width: 0px;
+					}
+				}
+			}
+		}
+
+		.dropdown-menu {
+			// border: 1px solid color('primarydark');
+			background: color('primarydark');
+			color: #fff;
+			border-radius: 0px;
+			min-width: 200px;
+
+			li {
+				a.dropdown-item {
+					font-size: 14px;
+					font-weight: 400;
+					color: #fff;
+					border-bottom: 1px solid rgba(0, 0, 0, .1);
+					padding-top: 10px;
+					padding-bottom: 10px;
+
+					&:hover,
+					&.sub-active {
+						background: rgba(0, 0, 0, .08);
+						color: color('secondary');
+					}
+				}
+
+				&:last-child {
+					a {
+						border: none;
+					}
+				}
+			}
+		}
+
+		//sm -menu
+		.show {
+			a.nav-link {
+				// background: color('primarydark');
+				// // .sub-arrow{
+				// // 	border-top-color: color('primary');
+				// // }
+			}
+		}
+
+		@media #{$md} {
+			.show {
+				a.nav-link {
+					color: color('secondary');
+					// background: color('primarydark');
+				}
+			}
+		}
+	}
+
+	.search-btn{
+		li {
+			a.nav-link,
+			a.nav-link:hover{
+				background: color('secondary');
+			}
+		}
+	}
+
+	&.fixed-top{
+		@include box-shadow(rgba(0,0,0,0.5) 0 0 15px);
+		.navbar-brand {
+			// background: #fff;
+			img{
+				width: 200px;
+			}
+		}
+		.search-btn{
+			li {
+				a.nav-link,
+				a.nav-link:hover{
+					padding: 20px;
+					color: #fff;
+				}
+			}
+		}
+	}
+}

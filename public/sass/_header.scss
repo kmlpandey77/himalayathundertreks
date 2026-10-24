@@ -1,0 +1,115 @@
+.top_header{
+    background: #0C1C1F;
+    padding: 5px 0;
+    color: #fff;
+    text-align: center;
+    @media #{$md} {
+        text-align: left;
+    }
+    font-size: 13px;
+    p{
+        text-align: center;
+        @media #{$md} {
+            text-align: left;
+        }
+        font-size: 13px;
+        margin: 0;
+        padding: 0;
+    }
+    a{
+        color: #fff;
+    }
+
+    .right_header{
+        @media #{$md} {
+            span{
+                margin-left: 20px;
+            }
+        }
+    }
+}
+
+.search {
+    padding: 30px 30px 0 50px;
+    form {
+        display: flex;
+        .field {
+            max-width: calc(100% - 120px);
+            flex-basis: calc(100% - 120px);
+            input {
+                background: white;
+                padding: 10px 15px;
+                border-radius: 5px 0 0 5px;
+                width: 100%;
+                color: #333;
+                border: 1px solid #e1e1e1;
+                border-right: none;
+                &:focus {
+                    outline: none;
+                    border-color: color('secondary');
+                }
+            }
+        }
+        .action {
+            max-width: 120px;
+            flex-basis: 120px;
+            button {
+                line-height: 46px;
+                height: 46px;
+                text-align: center;
+                padding: 0;
+                display: block;
+            }
+        }
+	}
+}
+
+.top_contact{
+    margin: 0;
+    padding: 28px 0 0 0;
+    list-style-type: none;
+    li{
+        @media #{$md} {
+            float: left;
+        }
+        // text-align: center;
+        margin-top: 10px;
+        &.call{
+            margin-top: 0;
+            margin-right: 10px;
+            padding-right: 15px;
+            border-right: 1px solid #ddd;
+            .icon{
+                margin-top: 5px;
+                float: left;
+                display: block;
+                margin-right: 10px;
+                i{
+                    font-size: 28px;
+                    // color: color('primarylight');
+                    color: color('secondary');
+                }
+            }
+            .text{
+                float: left;
+                line-height: 18px;
+                small{
+                    display: block;
+                }
+            }
+        }
+
+        a{
+            padding: 0 5px;
+            i{
+                font-size: 28px;
+            }
+        }
+
+        &:last-child{
+            a{
+                padding-right: 0;
+            }
+        }
+    }
+}

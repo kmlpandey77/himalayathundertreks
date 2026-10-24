@@ -1,0 +1,21 @@
+body.login{
+    padding: 50px;
+    // height: 100%;
+}
+.login-wrap {
+    margin: 15px;
+    .logo {
+        // text-align: center;
+        margin-bottom: 30px;
+        img {
+            width: 220px;
+        }
+    }
+    .card{
+        @include box-shadow(rgba(0,0,0, .2) 0 0 45px); 
+        .card-footer{
+            font-size: 14px;
+        }
+    }
+    
+}

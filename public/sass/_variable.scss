@@ -1,0 +1,64 @@
+//fonts
+$text_font: 'Poppins',
+sans-serif;
+
+$heading_font: 'Montserrat',
+sans-serif;
+
+$colors: ('primary': #2C9BBA,
+  'primarydark': #1D6377,
+  'primarylight': #22d1ee,
+  'secondary': #F89222,
+  'secondarydark': #bf6400,
+  'secondarylight': #ffc356,
+  'text_color': #333,
+  'light_bg': #f8f8f8,
+  'gray_bg': #dddddd,
+  'body_bg': #F7F8FC);
+
+
+@function color($color, $variation: false) {
+
+  @if map-has-key($colors, $color) {
+    $color: map-get($colors, $color);
+  }
+
+  @else {
+    @if type-of($color) !=color {
+      @error "Invalid color name: `#{$color}`.";
+    }
+  }
+
+  @if $variation {
+    @if not map-has-key($variations, $variation) {
+      @error "Invalid $variation: `#{$variation}`.";
+    }
+
+    @else {
+      $this-variation: map-get($variations, $variation);
+      $args: join(map-get($this-variation, function), $color);
+
+      @if map-get($this-variation, parameters) {
+        $args: join($args, map-get($this-variation, parameters));
+      }
+
+      @return call($args...);
+    }
+  }
+
+  @return $color;
+}
+
+
+$sm: "(min-width: 576px)";
+$md: "(min-width: 720px)";
+$lg: "(min-width: 960px)";
+$xl: "(min-width: 1200px)";
+
+$social_color: ('facebook':#3b5998,
+  'twitter':#1da1f2,
+  'youtube':#ff0000,
+  'viber':#665CAC,
+  'messenger':#0078FF,
+  'weixin':#2F8819,
+);

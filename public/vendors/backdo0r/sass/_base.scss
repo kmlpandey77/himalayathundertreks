@@ -1,0 +1,39 @@
+$sm: "(min-width: 576px)";
+$md: "(min-width: 720px)";
+$lg: "(min-width: 960px)";
+$xl: "(min-width: 1200px)";
+
+$primary: #ff6d00;
+$p_dark: #c43c00;
+$p_light: #ff9e40;
+$p_gray: #e1e1e1;
+$secondary: #34495E;
+$s_dark: #102027;
+$s_light: #62727b;
+
+$green: #cddc39;
+
+
+
+body {
+    background: #fff;
+    font-size: 14px;
+}
+
+a,
+li,
+i {
+    transition: all 0.6s;
+}
+
+.table th {
+    border: none;
+}
+
+.table>tbody>tr>td {
+    vertical-align: middle;
+}
+
+.table-hover tbody tr:hover {
+    background: #f9db0f;
+}

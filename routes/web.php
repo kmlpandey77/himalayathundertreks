@@ -5,7 +5,6 @@ use UniSharp\LaravelFilemanager;
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/blogs/{blog}/{slug}', 'BlogController@view');
-Route::get('/news', 'NewsController@index');
 
 Route::get('/reviews', 'ReviewController@index');
 
@@ -196,7 +195,6 @@ foreach ($tags as $tag) {
 Route::get('pdf/{slug}', 'PrintController@pdf')->name('pdf');
 Route::post('sendinquiry', 'BookingController@inquiry')->name('sendinquiry');
 Route::post('customize', 'CustomizeController@index')->name('customize');
-Route::get('search', 'SearchController@index')->name('search');
 
 Route::get('booking/{slug}', 'BookingController@index')->name('booking');
 Route::post('booking/{slug}', 'BookingController@index');
@@ -205,7 +203,6 @@ Route::get('print/{slug}', 'PrintController@index')->name('print');
 
 Route::post('requestcallback', 'BookingController@requestcallback')->name('requestcallback');
 Route::post('downloadbrochure', 'BookingController@downloadbrochure')->name('downloadbrochure');
-Route::get('searchcategory', 'SearchController@searchcategory')->name('searchcategory');
 
 Route::get('thankyou', 'BookingController@thankyou')->name('thankyou');
 
